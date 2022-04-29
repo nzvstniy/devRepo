@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class O_Acid implements Serializable  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id_oil;
     private String acid_name;
