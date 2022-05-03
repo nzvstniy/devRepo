@@ -2,10 +2,6 @@ package dip.dev;
 
 
 import dip.dev.model.*;
-import dip.dev.repo.OilRepo;
-import dip.dev.repo.PlantOilRepo;
-import dip.dev.repo.PoAcidRepo;
-import dip.dev.repo.oAcidRepo;
 import dip.dev.service.ModelService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,10 +26,10 @@ public class ModelResource {
         List<Acid> acid = modelService.findAllAcid();
         return new ResponseEntity<>(acid, HttpStatus.OK);
     }
-    @GetMapping("/oAcid/all")
-    public ResponseEntity<List<O_Acid>> getAllO_Acid(){
-        List<O_Acid> o_acid = modelService.findAllO_Acid();
-        return new ResponseEntity<>(o_acid, HttpStatus.OK);
+    @GetMapping("/oilAcid/all")
+    public ResponseEntity<List<OilAcid>> getAllO_Acid(){
+        List<OilAcid> oilAcid = modelService.findAllOilAcid();
+        return new ResponseEntity<>(oilAcid, HttpStatus.OK);
     }
     @GetMapping("/oil/all")
     public ResponseEntity<List<Oil>> getAllOil(){
@@ -45,10 +41,10 @@ public class ModelResource {
         List<PlantOil> plantOil = modelService.findAllPlantOil();
         return new ResponseEntity<>(plantOil, HttpStatus.OK);
     }
-    @GetMapping("/poAcid/all")
-    public ResponseEntity<List<Po_Acid>> getAllPo_Acid(){
-        List<Po_Acid> po_acid = modelService.findAllPo_Acid();
-        return new ResponseEntity<>(po_acid, HttpStatus.OK);
+    @GetMapping("/plantOilAcid/all")
+    public ResponseEntity<List<PlantOilAcid>> getAllPo_Acid(){
+        List<PlantOilAcid> plantOilAcid = modelService.findAllPlantOilAcid();
+        return new ResponseEntity<>(plantOilAcid, HttpStatus.OK);
     }
 
 
@@ -58,10 +54,10 @@ public class ModelResource {
         return new ResponseEntity<>(newAcid, HttpStatus.CREATED);
     }
 
-    @PostMapping("/oAcid/add")
-    public ResponseEntity<O_Acid> addO_Acid(@RequestBody O_Acid o_acid){
-        O_Acid newO_Acid = modelService.addO_Acid(o_acid);
-        return new ResponseEntity<>(newO_Acid, HttpStatus.CREATED);
+    @PostMapping("/oilAcid/add")
+    public ResponseEntity<OilAcid> addOilAcid(@RequestBody OilAcid oilAcid){
+        OilAcid newOilAcid = modelService.addOilAcid(oilAcid);
+        return new ResponseEntity<>(newOilAcid, HttpStatus.CREATED);
     }
 
     @PostMapping("/oil/add")
@@ -76,10 +72,10 @@ public class ModelResource {
         return new ResponseEntity<>(newPlantOil, HttpStatus.CREATED);
     }
 
-    @PostMapping("/poAcid/add")
-    public ResponseEntity<Po_Acid> addPo_Acid(@RequestBody Po_Acid poAcid){
-        Po_Acid newPo_Acid = modelService.addPo_Acid(poAcid);
-        return new ResponseEntity<>(newPo_Acid, HttpStatus.CREATED);
+    @PostMapping("/plantOilAcid/add")
+    public ResponseEntity<PlantOilAcid> addPlantOilAcid(@RequestBody PlantOilAcid plantOilAcid){
+        PlantOilAcid newPlantOilAcid = modelService.addPlantOilAcid(plantOilAcid);
+        return new ResponseEntity<>(newPlantOilAcid, HttpStatus.CREATED);
     }
 
     @PutMapping("/acid/update")
@@ -87,10 +83,10 @@ public class ModelResource {
         Acid updateAcid = modelService.updateAcid(acid);
         return new ResponseEntity<>(updateAcid, HttpStatus.OK);
     }
-    @PutMapping("/oAcid/update")
-    public ResponseEntity<O_Acid> updateO_Acid(@RequestBody O_Acid o_acid){
-        O_Acid updateO_Acid = modelService.updateO_Acid(o_acid);
-        return new ResponseEntity<>(updateO_Acid, HttpStatus.OK);
+    @PutMapping("/oilAcid/update")
+    public ResponseEntity<OilAcid> updateO_Acid(@RequestBody OilAcid oilAcid){
+        OilAcid updateoilAcid = modelService.updateOilAcid(oilAcid);
+        return new ResponseEntity<>(updateoilAcid, HttpStatus.OK);
     }
     @PutMapping("/oil/update")
     public ResponseEntity<Oil> updateOil(@RequestBody Oil oil){
@@ -102,10 +98,10 @@ public class ModelResource {
         PlantOil updatePlantOil = modelService.updatePlantOil(plantOil);
         return new ResponseEntity<>(updatePlantOil, HttpStatus.OK);
     }
-    @PutMapping("/poAcid/update")
-    public ResponseEntity<Po_Acid> updatePo_Acid(@RequestBody Po_Acid po_acid){
-        Po_Acid updatePo_Acid = modelService.updatePo_Acid(po_acid);
-        return new ResponseEntity<>(updatePo_Acid, HttpStatus.OK);
+    @PutMapping("/plantOilAcid/update")
+    public ResponseEntity<PlantOilAcid> updatePo_Acid(@RequestBody PlantOilAcid plantOilAcid){
+        PlantOilAcid updatePlantOilAcid = modelService.updatePlantOilAcid(plantOilAcid);
+        return new ResponseEntity<>(updatePlantOilAcid, HttpStatus.OK);
     }
 
 
@@ -117,9 +113,9 @@ public class ModelResource {
     }
 
     @Transactional
-    @DeleteMapping("/oAcid/delete/{id}")
+    @DeleteMapping("/oilAcid/delete/{id}")
     public ResponseEntity<?> deleteO_Acid(@PathVariable("id") Long id) {
-        modelService.deleteO_Acid(id);
+        modelService.deleteOilAcid(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -138,9 +134,9 @@ public class ModelResource {
     }
 
     @Transactional
-    @DeleteMapping("/poAcid/delete/{id}")
+    @DeleteMapping("/plantOilAcid/delete/{id}")
     public ResponseEntity<?> deletePo_Acid(@PathVariable("id") Long id) {
-        modelService.deletePo_Acid(id);
+        modelService.deletePlantOilAcid(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

@@ -11,18 +11,18 @@ import java.util.List;
 
 public class ModelService {
     private final AcidRepo acidRepo;
-    private final oAcidRepo oAcidRepo;
+    private final OilAcidRepo oilAcidRepo;
     private final OilRepo oilRepo;
     private final PlantOilRepo plantOilRepo;
-    private final PoAcidRepo poAcidRepo;
+    private final PlantOilAcidRepo plantOilAcidRepo;
 
     @Autowired
-    public ModelService(AcidRepo acidRepo, dip.dev.repo.oAcidRepo oAcidRepo, OilRepo oilRepo, PlantOilRepo plantOilRepo, PoAcidRepo poAcidRepo) {
+    public ModelService(AcidRepo acidRepo, OilAcidRepo oilAcidRepo, OilRepo oilRepo, PlantOilRepo plantOilRepo, PlantOilAcidRepo plantOilAcidRepo) {
         this.acidRepo = acidRepo;
-        this.oAcidRepo = oAcidRepo;
+        this.oilAcidRepo = oilAcidRepo;
         this.oilRepo = oilRepo;
         this.plantOilRepo = plantOilRepo;
-        this.poAcidRepo = poAcidRepo;
+        this.plantOilAcidRepo = plantOilAcidRepo;
     }
 
     public Acid addAcid(Acid acid) {
@@ -30,9 +30,9 @@ public class ModelService {
         return acidRepo.save(acid);
     }
 
-    public O_Acid addO_Acid(O_Acid o_acid) {
+    public OilAcid addOilAcid(OilAcid oilAcid) {
 
-        return oAcidRepo.save(o_acid);
+        return oilAcidRepo.save(oilAcid);
     }
 
     public Oil addOil(Oil oil) {
@@ -45,16 +45,16 @@ public class ModelService {
         return plantOilRepo.save(plantOil);
     }
 
-    public Po_Acid addPo_Acid(Po_Acid poAcid) {
+    public PlantOilAcid addPlantOilAcid(PlantOilAcid plantOilAcid) {
 
-        return poAcidRepo.save(poAcid);
+        return plantOilAcidRepo.save(plantOilAcid);
     }
 
     public List<Acid> findAllAcid() {
         return acidRepo.findAll();
     }
-    public List<O_Acid> findAllO_Acid() {
-        return oAcidRepo.findAll();
+    public List<OilAcid> findAllOilAcid() {
+        return oilAcidRepo.findAll();
     }
     public List<Oil> findAllOil() {
         return oilRepo.findAll();
@@ -62,15 +62,15 @@ public class ModelService {
     public List<PlantOil> findAllPlantOil() {
         return plantOilRepo.findAll();
     }
-    public List<Po_Acid> findAllPo_Acid() {
-        return poAcidRepo.findAll();
+    public List<PlantOilAcid> findAllPlantOilAcid() {
+        return plantOilAcidRepo.findAll();
     }
 
     public Acid updateAcid(Acid acid) {
         return acidRepo.save(acid);
     }
-    public O_Acid updateO_Acid(O_Acid o_acid) {
-        return oAcidRepo.save(o_acid);
+    public OilAcid updateOilAcid(OilAcid oilAcid) {
+        return oilAcidRepo.save(oilAcid);
     }
     public Oil updateOil(Oil oil) {
         return oilRepo.save(oil);
@@ -78,25 +78,27 @@ public class ModelService {
     public PlantOil updatePlantOil(PlantOil plantOil) {
         return plantOilRepo.save(plantOil);
     }
-    public Po_Acid updatePo_Acid(Po_Acid poAcid) {
-        return poAcidRepo.save(poAcid);
+    public PlantOilAcid updatePlantOilAcid(PlantOilAcid plantOilAcid) {
+        return plantOilAcidRepo.save(plantOilAcid);
     }
 
 
     public void deleteAcid(Long id_acid) {
         acidRepo.deleteAcidById_acid(id_acid);
     }
-    public void deleteO_Acid(Long id_acid) {
-        oAcidRepo.deleteO_AcidById_oil(id_acid);
+    public void deleteOilAcid(Long id_acid_oil) {
+        oilAcidRepo.deleteOilAcidById_acid_oil(id_acid_oil);
     }
-    public void deleteOil(Long id_acid) {
-        oilRepo.deleteOilById_oil(id_acid);
+    public void deleteOil(Long id_oil) {
+        oilRepo.deleteOilById_oil(id_oil);
     }
-    public void deletePlantOil(Long id_acid) {
-        plantOilRepo.deletePlantOilById_plant_oil(id_acid);
+
+    public void deletePlantOil(Long id_plant_oil) {
+        plantOilRepo.deletePlantOilById_plant_oil(id_plant_oil);
     }
-    public void deletePo_Acid(Long id_acid) {
-        poAcidRepo.deletePo_AcidById_plant_oil(id_acid);
+
+    public void deletePlantOilAcid(Long id_acid_plant) {
+        plantOilAcidRepo.deletePlantOilAcidById_acid_plant(id_acid_plant);
     }
 
 
