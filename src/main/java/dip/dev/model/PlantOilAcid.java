@@ -8,15 +8,15 @@ public class PlantOilAcid implements Serializable  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private Long id_acid_plant;
-    private Long id_plants;
+    private String name_oils;
     private String name_acids;
     private String fat_acid_content_min;
     private String fat_acid_content_max;
 
 
-    public PlantOilAcid(Long id_plants, String name_acids, String fat_acid_content_min, String fat_acid_content_max) {
+    public PlantOilAcid(String name_oils, String name_acids, String fat_acid_content_min, String fat_acid_content_max) {
         this.name_acids = name_acids;
-        this.id_plants = id_plants;
+        this.name_oils = name_oils;
         this.fat_acid_content_min = fat_acid_content_min;
         this.fat_acid_content_max = fat_acid_content_max;
     }
@@ -33,12 +33,12 @@ public class PlantOilAcid implements Serializable  {
         this.id_acid_plant = id_acidPlant;
     }
 
-    public Long getId_plants() {
-        return id_plants;
+    public String getName_oils() {
+        return name_oils;
     }
 
-    public void setId_plants(Long idPlants) {
-        this.id_plants = idPlants;
+    public void setName_oils(String String) {
+        this.name_oils = String;
     }
 
     public String getName_acids() {
@@ -69,7 +69,7 @@ public class PlantOilAcid implements Serializable  {
     public String toString() {
         return "Acid{" +
                 "id_acidPlant=" + id_acid_plant +
-                ", idPlants=" + id_plants +
+                ", name_oils=" + name_oils + '\'' +
                 ", nameAcids='" + name_acids + '\'' +
                 ", acid_full_name='" + fat_acid_content_min + '\'' +
                 ", acid_description='" + fat_acid_content_max + '\'' +

@@ -15,14 +15,16 @@ public class ModelService {
     private final OilRepo oilRepo;
     private final PlantOilRepo plantOilRepo;
     private final PlantOilAcidRepo plantOilAcidRepo;
+    private final SortsRepo sortsRepo;
 
     @Autowired
-    public ModelService(AcidRepo acidRepo, OilAcidRepo oilAcidRepo, OilRepo oilRepo, PlantOilRepo plantOilRepo, PlantOilAcidRepo plantOilAcidRepo) {
+    public ModelService(AcidRepo acidRepo, OilAcidRepo oilAcidRepo, OilRepo oilRepo, PlantOilRepo plantOilRepo, PlantOilAcidRepo plantOilAcidRepo, SortsRepo sortsRepo) {
         this.acidRepo = acidRepo;
         this.oilAcidRepo = oilAcidRepo;
         this.oilRepo = oilRepo;
         this.plantOilRepo = plantOilRepo;
         this.plantOilAcidRepo = plantOilAcidRepo;
+        this.sortsRepo = sortsRepo;
     }
 
     public Acid addAcid(Acid acid) {
@@ -100,7 +102,17 @@ public class ModelService {
     public void deletePlantOilAcid(Long id_acid_plant) {
         plantOilAcidRepo.deletePlantOilAcidById_acid_plant(id_acid_plant);
     }
-
-
+    public Sort addSorts(Sort sort) {
+        return sortsRepo.save(sort);
+    }
+    public void deleteSorts(Long id_sorts) {
+        sortsRepo.deleteSortById_sorts(id_sorts);
+    }
+    public Sort updateSorts(Sort sort) {
+        return sortsRepo.save(sort);
+    }
+    public List<Sort> findAllSorts() {
+        return sortsRepo.findAll();
+    }
 
 }
